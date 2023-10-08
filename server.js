@@ -1,16 +1,20 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const connectDatabase = require('./config/connection');
 const routes = require('./routes');
-
 
 const app = express();
 
-
+// Middleware setup
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(routes);
 
-mongoose.connect(process.env.CONNECT); // Needs to be completed prior to deployment
+// Use the defined routes
+app.use('/api', routes); 
+
+// Connect to MongoDB
+connectDatabase();
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`Connected on localhost:${PORT}`));
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
