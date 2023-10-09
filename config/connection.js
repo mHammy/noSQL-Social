@@ -5,7 +5,6 @@ const connectDatabase = async () => {
         await mongoose.connect(process.env.CONNECT, { 
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useCreateIndex: true,
         });
         console.log('MongoDB connected successfully.');
     } catch (error) {
@@ -14,4 +13,4 @@ const connectDatabase = async () => {
     }
 };
 
-module.exports = connectDatabase;
+module.exports = { connectDatabase };

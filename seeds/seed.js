@@ -1,4 +1,6 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
+const mongooseValidator = require('mongoose-validator');
 const db = require('../config/connection');
 
 const User = require('../models/User');
