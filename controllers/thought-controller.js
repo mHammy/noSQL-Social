@@ -7,7 +7,8 @@ const getAllThoughts = async (req, res) => {
         const thoughts = await Thought.find({});
         res.status(200).json(thoughts);
     } catch (err) {
-        res.status(500).json(err);
+        console.error(err); // log the error
+        res.status(500).json({ message: "Internal Server Error", error: err.message });
     }
 };
 
