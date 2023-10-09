@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const { connectDatabase } = require('./config/connection');
-const routes = require('./routes');
+const routes = require('./routes/api');
 
 const app = express();
 
@@ -11,6 +11,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Use the defined routes
 app.use('/api', routes); 
+
+app.get('/test', (req, res) => res.send('Test successful!'));
+
 
 // Connect to MongoDB
 connectDatabase();
