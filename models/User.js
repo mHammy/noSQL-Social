@@ -1,11 +1,42 @@
 const { Schema, model } = require('mongoose');
-const validator = require('mongoose-validator'); // To validate the email format
+const validator = require('mongoose-validator'); 
 
-const UserSchema = new Schema({ 
-});  // TODO: Add the rest of the fields
+const UserSchema = new Schema({
+    username: {
+        type: String,
+        unique: true,
+        required: true,
+        trim: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        validate: {
+            validator: function(v) {
+                return validator.isEmail(v);
+            },
+            message: 'Not a valid email address'
+        }
+        
+    },
+    thoughts: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Thought'
+        }
+    ],
+    friends: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ]
+});
 
 UserSchema.virtual('friendCount').get(function() {
-}); // TODO: Add the virtual for friendCount
+    return this.friends.length;
+});
 
 const User = model('User', UserSchema);
 
