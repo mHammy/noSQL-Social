@@ -1,6 +1,8 @@
+// requiring mongoose and the dateFormat utility function
 const { Schema } = require('mongoose');
 const dateFormat = require('../utils/utils');
 
+// creating the reaction schema
 const reactionSchema = new Schema({
     reactionBody: {
         type: String,
@@ -18,4 +20,5 @@ const reactionSchema = new Schema({
     }
 });
 
+// exporting the reaction schema
 module.exports = reactionSchema;

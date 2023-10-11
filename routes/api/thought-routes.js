@@ -1,4 +1,7 @@
+// requiring express
 const router = require('express').Router();
+
+// deconstructing the methods from the thought-controller
 const {
     getAllThoughts,
     getThoughtById,
@@ -9,24 +12,24 @@ const {
     deleteReaction,
 } = require('../../controllers/thought-controller');
 
-// /api/thoughts
+// all thoughts and create thought routes
 router.route('/')
     .get(getAllThoughts)
     .post(createThought);
 
-// /api/thoughts/:thoughtId
+// get one, update, and delete thought routes
 router.route('/:thoughtId')
     .get(getThoughtById)
     .put(updateThought)
     .delete(deleteThought);
 
-// /api/thoughts/:thoughtId/reactions
+// create reaction route
 router.route('/:thoughtId/reactions')
     .post(createReaction)
 
-// /api/thoughts/:thoughtId/reactions/:reactionId
+// delete reaction route
 router.route('/:thoughtId/reactions/:reactionId')
     .delete(deleteReaction);
 
-
+// exporting the router
 module.exports = router;

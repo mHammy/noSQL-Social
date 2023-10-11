@@ -1,5 +1,7 @@
+// requiring mongoose with the destructured Schema and model properties
 const { Schema, model } = require('mongoose');
 
+// creating the user schema
 const UserSchema = new Schema(
     {
         username: {
@@ -37,10 +39,11 @@ const UserSchema = new Schema(
     }
 );
 
+// creating virtual for friend count
 UserSchema.virtual('friendCount').get(function() {
     return this.friends.length;
 });
-
+// model for the user schema
 const User = model('User', UserSchema);
-
+// exporting the user model
 module.exports = User;
