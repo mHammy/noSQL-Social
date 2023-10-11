@@ -1,3 +1,4 @@
+// requiring the User and Thought models
 const User = require('../models/User');
 const Thought = require('../models/Thought');
 
@@ -78,6 +79,7 @@ const deleteThought = async (req, res) => {
     }
 };
 
+// Create a reaction stored in a single thought's reactions array field
 const createReaction = async (req, res) => {
     try {
         const thought = await Thought.findOneAndUpdate(
@@ -97,6 +99,7 @@ const createReaction = async (req, res) => {
     }
 };
 
+// Delete a reaction by the reaction's reactionId value
 const deleteReaction = async (req, res) => {
     try {
         const thought = await Thought.findOneAndUpdate(
@@ -116,7 +119,7 @@ const deleteReaction = async (req, res) => {
     }
 };
 
-
+// exporting the methods
 module.exports = {
     getAllThoughts,
     getThoughtById,

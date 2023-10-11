@@ -1,3 +1,4 @@
+// dateFormat function
 function dateFormat(timestamp) {
     const date = new Date(timestamp); // Convert timestamp to Date object
     const day = ('0' + date.getDate()).slice(-2); // Format day to have 2 digits
@@ -9,5 +10,5 @@ function dateFormat(timestamp) {
 
     return `${month}/${day}/${year} ${hours}:${minutes}:${seconds}`;
 }
-
+// exporting dateFormat function
 module.exports = dateFormat;

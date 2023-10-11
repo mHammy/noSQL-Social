@@ -1,5 +1,7 @@
+// requiring mongoose
 const mongoose = require('mongoose');
 
+// connecting to the database
 const connectDatabase = async () => {
     try {
         await mongoose.connect(process.env.CONNECT, { 
@@ -12,5 +14,5 @@ const connectDatabase = async () => {
         process.exit(1);
     }
 };
-
+// exporting the connection
 module.exports = { connectDatabase };

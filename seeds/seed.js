@@ -1,10 +1,11 @@
+// requiring the database connection, the User and Thought models, and the data
 require('dotenv').config();
 const mongoose = require('mongoose');
 const db = require('../config/connection');
-
 const User = require('../models/User');
 const Thought = require('../models/Thought');
 
+// user and thought data
 const userData = [
     {
         username: 'user1',
@@ -39,6 +40,7 @@ const thoughtData = [
     }
 ];
 
+// connecting to the database and inserting the user and thought data
 db.connectDatabase()
     .then(() => {
         return User.deleteMany({});

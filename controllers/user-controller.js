@@ -1,3 +1,4 @@
+// requiring the User and Thought models
 const User = require('../models/User');
 const Thought = require('../models/Thought');
 
@@ -106,6 +107,7 @@ const removeFriend = async (req, res) => {
     }
 };
 
+// exporting the functions
 module.exports = {
     getAllUsers,
     getUserById,
