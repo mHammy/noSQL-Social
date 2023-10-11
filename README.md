@@ -11,7 +11,7 @@ This application is a noSQL-based social networking API allowing users to share 
 ![Image of the application in action](./assets/images/API.png) 
 *This image represents a mockup of how the API routes might be visualized in a client application.*
 
-For a video walkthrough of the API endpoints: [Link to video walkthrough](#https://youtu.be/v8509l1M1Ys)
+For a video walkthrough of the API endpoints: [Link to video walkthrough](https://youtu.be/v8509l1M1Ys)
 
 ## Table of Contents
 - [Description](#description)
